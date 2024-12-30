@@ -3,5 +3,6 @@ PDF PARA LA PRACTICA:
 
 Main activity:
 app/src/main/java/com/example/traductorazure/MainActivity.java
+
 Activity_main.xml:
 app/src/main/res/layout/activity_main.xml
