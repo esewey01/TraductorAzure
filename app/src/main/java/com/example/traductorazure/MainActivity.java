@@ -24,9 +24,9 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String KEY = "14D8wQ82PWssQjg01BBEgSonSyX3E7QRhZA2DNiyynMOeCOrnEJmJQQJ99ALACYeBjFXJ3w3AAAbACOGNHwg";
-    private static final String ENDPOINT = "https://api.cognitive.microsofttranslator.com";
-    private static final String LOCATION = "eastus";
+    private static final String KEY = "KEY";
+    private static final String ENDPOINT = "URL";
+    private static final String LOCATION = "UBIC";
     private static final String TAG = "TranslatorApp";
 
     @Override
