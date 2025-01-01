@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY = "KEY";
     private static final String ENDPOINT = "URL";
     private static final String LOCATION = "UBIC";
-    private static final String TAG = "TranslatorApp";
+    private static final String TAG = "DEBUG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         String path = "/translate";
         String constructedUrl = ENDPOINT + path + "?api-version=3.0&from=es&to=fr&to=en";
 
-        Log.d(TAG, "Constructed URL: " + constructedUrl);
+        Log.d(TAG, "URL: " + constructedUrl);
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -62,13 +62,13 @@ public class MainActivity extends AppCompatActivity {
             textObject.put("text", text);
             requestBody.put(textObject);
 
-            Log.d(TAG, "Request Body: " + requestBody.toString());
+            Log.d(TAG, "SOLICITUD: " + requestBody.toString());
 
             StringRequest stringRequest = new StringRequest(
                     Request.Method.POST,
                     constructedUrl,
                     response -> {
-                        Log.d(TAG, "Respuesta de la API: " + response);
+                        Log.d(TAG, "RESPUESTA: " + response);
                         try {
                             // La respuesta es un JSONArray que contiene un objeto con la clave "translations"
                             JSONArray responseArray = new JSONArray(response);
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     },
                     error -> {
-                        Log.e(TAG, "Error connecting to API: ", error);
+                        Log.e(TAG, "ERROR AL CONECTAR CON LA API: ", error);
                         Toast.makeText(MainActivity.this, "Error al conectar con la API", Toast.LENGTH_SHORT).show();
                     }) {
                 @Override
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     headers.put("Ocp-Apim-Subscription-Region", LOCATION);
                     headers.put("Content-type", "application/json");
                     headers.put("X-ClientTraceId", UUID.randomUUID().toString());
-                    Log.d(TAG, "Headers: " + headers.toString());
+                    Log.d(TAG, "ENCABEZADOS: " + headers.toString());
                     return headers;
                 }
 
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             queue.add(stringRequest);
 
         } catch (JSONException e) {
-            Log.e(TAG, "Error building request body: ", e);
+            Log.e(TAG, "Error al construir el cuerpo de la solicitud: ", e);
             Toast.makeText(this, "Error al construir el cuerpo de la solicitud", Toast.LENGTH_SHORT).show();
         }
     }
