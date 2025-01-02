@@ -7,4 +7,4 @@ app/src/main/java/com/example/traductorazure/MainActivity.java
 Activity_main.xml:
 app/src/main/res/layout/activity_main.xml
 
-Permisos:<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.INTERNET" />
